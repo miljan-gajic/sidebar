@@ -22,7 +22,8 @@ const Sidebar: React.FC<SidebarProps> = ({
       className="        
         bg-[color:var(--light-bg)] dark:bg-[color:var(--dark-bg)] 
         shadow-md
-        text-[color:var(--light-font-clr)] dark:text-[color:var(--dark-font-clr)]"
+        text-[color:var(--light-font-clr)] dark:text-[color:var(--dark-font-clr)]
+        flex flex-col"
     >
       <div
         className="
@@ -46,9 +47,9 @@ const Sidebar: React.FC<SidebarProps> = ({
           {collapsed ? truncateWord("ADMINISTRATION", 0) : "ADMINISTRATION"}
         </button>
       </div>
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col grow justify-between">
         {/* In the design there were paddings that are not symmetrical, 24px, 12px, 24px, 16px I don't know if this is some error or not */}
-        <div className="pt-[24px] pr-[12px] pb-[24px] pl-[16px] flex flex-col grow gap-y-12">
+        <div className="pt-[24px] pr-[12px] pb-[24px] pl-[16px] flex-col gap-y-12">
           <div
             id="category 1"
             className="flex flex-col gap-y-[25px] justify-start items-start"
