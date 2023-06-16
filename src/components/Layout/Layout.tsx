@@ -1,6 +1,8 @@
 import classNames from "classnames";
 import { PropsWithChildren, useState } from "react";
+import data from "../../assets/data/menuItems.json";
 import Sidebar from "../Sidebar/Sidebar";
+
 const Layout = ({ children }: PropsWithChildren) => {
   const [collapsed, setSidebarCollapsed] = useState(false);
   return (
@@ -19,6 +21,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       <Sidebar
         collapsed={collapsed}
         setCollapsed={() => setSidebarCollapsed((prev) => !prev)}
+        menuItems={data}
       />
       {/* content */}
       <div className=""> {children}</div>

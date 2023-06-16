@@ -17,6 +17,8 @@ export default {
         "dark-pressed-clr": "var(--dark-pressed-clr)",
         "section-light": "var(--section-light)",
         "section-dark": "var(--section-dark)",
+        "section-hover-dark": "var(--section-hover-dark)",
+        "section-active-dark": "var(--section-active-dark)",
       },
       height: {
         "badge-height": "var(--badge-height)",

@@ -24,6 +24,8 @@
 
   --section-light: #1c4f7f;
   --section-dark: #aabdcf;
+  --section-hover-dark: #F8E9E81A;
+  --section-active-dark: #F8E9E80D;
 
   /* Sizes */
   --sidebar-w: 250px;
