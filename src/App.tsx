@@ -1,14 +1,13 @@
 import Content from "@/components/Content/Content";
-import Sidebar from "@/components/Sidebar/Sidebar";
+import Layout from "@/components/Layout/Layout";
 import "./App.css";
 
 function App() {
   return (
-    <div className="container w-full md:max-w-none lg:container gap-4">
-      <div className="flex">
-        <Sidebar />
+    <div className="container w-full md:max-w-none lg:container font-inter">
+      <Layout>
         <Content />
-      </div>
+      </Layout>
     </div>
   );
 }

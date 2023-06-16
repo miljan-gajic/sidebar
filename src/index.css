@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap');
 
 :root {
   /* background colors */
@@ -26,6 +27,8 @@
 
   /* Sizes */
   --sidebar-w: 250px;
+  --badge-height: 111px;
+  --badge-button-width: 140px;
 
   /* Box Shadow */
   --shadow-light: box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);

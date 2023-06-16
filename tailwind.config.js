@@ -17,8 +17,19 @@ export default {
         "dark-pressed-clr": "var(--dark-pressed-clr)",
         "section-light": "var(--section-light)",
         "section-dark": "var(--section-dark)",
-        "sidebar-w": "var(--sidebar-w)",
-        "shadow-light": "var(--shadow)",
+      },
+      height: {
+        "badge-height": "var(--badge-height)",
+      },
+      width: {
+        "badge-button-width": "var(--badge-button-width)",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+      },
+      gridTemplateColumns: {
+        sidebar: "250px auto", //for sidebar layout
+        "sidebar-collapsed": "66px auto", //for collapsed sidebar layout
       },
     },
   },
