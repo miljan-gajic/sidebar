@@ -5,7 +5,9 @@ export default {
     extend: {
       colors: {
         "light-bg": "var(--light-bg)",
+        "light-bg-content": "var(--light-bg-content)",
         "dark-bg": "var(--dark-bg)",
+        "dark-bg-content": "var(--dark-bg-content)",
         "badge-clr": "var(--badge-clr)",
         "light-font-clr": "var(--light-font-clr)",
         "light-hover-clr": "var(--light-hover-clr)",
@@ -15,6 +17,8 @@ export default {
         "dark-pressed-clr": "var(--dark-pressed-clr)",
         "section-light": "var(--section-light)",
         "section-dark": "var(--section-dark)",
+        "sidebar-w": "var(--sidebar-w)",
+        "shadow-light": "var(--shadow)",
       },
     },
   },
