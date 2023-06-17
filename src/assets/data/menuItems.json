@@ -1,10 +1,30 @@
 [
   {
-    "category": "Category 1",
-    "menuItems": [{}]
+    "category": "procurement",
+    "menuItems": [
+      {
+        "label": "catalog"
+      },
+      {
+        "label": "projects"
+      },
+      {
+        "label": "jobs"
+      }
+    ]
   },
   {
-    "category": "Category 2",
-    "menuItems": [{}]
+    "category": "resources",
+    "menuItems": [
+      {
+        "label": "files"
+      },
+      {
+        "label": "media_assets"
+      },
+      {
+        "label": "manuals"
+      }
+    ]
   }
 ]

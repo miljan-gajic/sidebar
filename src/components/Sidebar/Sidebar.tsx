@@ -6,7 +6,7 @@ import SidebarFooter from "@/components/Sidebar/SidebarFooter";
 type SidebarProps = {
   menuItems: {
     category: string;
-    menuItems: {}[];
+    menuItems: Record<"label", string>[];
   }[];
 };
 

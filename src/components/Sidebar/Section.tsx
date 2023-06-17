@@ -31,7 +31,7 @@ const Section = () => {
             PROCUREMENT
           </p>
         )}
-        <div
+        <button
           className={`
             flex items-center justify-start gap-x-2 
             pt-[8px] pr-[16px] pb-[8px] pl-[4px] 
@@ -45,13 +45,14 @@ const Section = () => {
                 : ""
             }
             transition duration-150 ease-in-out`}
-          onClick={() => {
+          onClick={(e) => {
             addActiveMenuItem("Catalog");
             setActive(!active);
+            console.log(e.currentTarget);
           }}
         >
           <SvgIcon
-            iconName={`catalogs_${systemColorTheme}`}
+            iconName={`catalog_${systemColorTheme}`}
             svgProp={{
               width: 26,
               height: 26,
@@ -63,7 +64,7 @@ const Section = () => {
             }}
           />
           {collapsed ? null : <p className="text-sm font-semibold">Catalog</p>}
-        </div>
+        </button>
         <div
           className={`
             flex items-center justify-start gap-x-2 
