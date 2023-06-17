@@ -1,18 +1,18 @@
 import Content from "@/components/Content/Content";
 import Layout from "@/components/Layout/Layout";
-import { useReadAndSetSystemTheme } from "./hooks/systemTheme";
-import { useUI } from "./hooks/uiContext";
+import { useLoadLSItemsToContext } from "@/hooks/localStorage";
+import { useReadAndSetSystemTheme } from "@/hooks/systemTheme";
+import { useSetCollapsedBasedOnWindowWidth } from "@/hooks/windowSize";
 
 function App() {
   useReadAndSetSystemTheme();
+  useLoadLSItemsToContext();
+  useSetCollapsedBasedOnWindowWidth();
 
-  const {
-    state: { activeMenuItem },
-  } = useUI();
   return (
     <div className="container w-full md:max-w-none lg:container font-inter">
       <Layout>
-        <Content contentToDisplay={activeMenuItem} />
+        <Content />
       </Layout>
     </div>
   );

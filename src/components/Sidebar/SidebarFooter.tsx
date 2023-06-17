@@ -1,7 +1,10 @@
+import { useLocalStorage } from "@/hooks/localStorage";
 import { useUI } from "@/hooks/uiContext";
+import { useEffect } from "react";
 import SvgIcon from "../SvgIcon/SvgIcon";
 
 const SidebarFooter = () => {
+  const [localState, handleSetState] = useLocalStorage("UI", {});
   const {
     dispatch,
     state: { collapsed, systemColorTheme },
@@ -13,6 +16,10 @@ const SidebarFooter = () => {
       payload: !collapsed,
     });
   };
+
+  useEffect(() => {
+    handleSetState({ ...localState, collapsed });
+  }, [collapsed]);
   return (
     <div
       className="

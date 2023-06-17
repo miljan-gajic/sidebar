@@ -1,5 +1,7 @@
 import SvgIcon from "@/components/SvgIcon/SvgIcon";
+import { useLocalStorage } from "@/hooks/localStorage";
 import { useUI } from "@/hooks/uiContext";
+import { removeUnderscoreBetweenWords } from "@/utils/textUtils";
 import { useState } from "react";
 
 type SectionItemProps = {
@@ -7,11 +9,11 @@ type SectionItemProps = {
   categoryTitle?: string;
 };
 
-const SectionItem: React.FC<SectionItemProps> = ({
-  menuItemLabel,
-  categoryTitle,
-}) => {
-  const [active, setActive] = useState({ [menuItemLabel]: false });
+const SectionItem: React.FC<SectionItemProps> = ({ menuItemLabel }) => {
+  const [localState, handleSetState] = useLocalStorage("UI", {});
+  const [active, setActive] = useState({
+    [menuItemLabel]: localState["activeMenuItem"] === menuItemLabel,
+  });
 
   const {
     dispatch,
@@ -23,21 +25,14 @@ const SectionItem: React.FC<SectionItemProps> = ({
       type: "addActiveMenuItem",
       payload: activeMenu,
     });
+    handleSetState({ ...localState, activeMenuItem: activeMenu });
   };
 
   return (
-    <>
-      {collapsed
-        ? null
-        : categoryTitle && (
-            <p className="text-xs font-extrabold text-[color:var(--section-light)] dark:text-[color:var(--section-dark)] pl-2">
-              {categoryTitle}
-            </p>
-          )}
-      <div
-        className={`
+    <button
+      className={`
           flex items-center justify-start gap-x-2 
-          pt-[8px] pr-[16px] pb-[8px] pl-[4px] 
+          ${collapsed ? "pt-2 pr-4 pb-2 pl-3" : "pt-2 pr-4 pb-2 pl-1 "}
           hover:bg-[color:var(--section-hover-dark)]
           hover:cursor-pointer
           hover:border-l-4
@@ -48,31 +43,32 @@ const SectionItem: React.FC<SectionItemProps> = ({
               : ""
           }
           transition duration-150 ease-in-out`}
-        onClick={() => {
-          addActiveMenuItem("Catalog");
-          setActive((prevActive) => ({
-            ...prevActive,
-            [menuItemLabel]: !active[menuItemLabel],
-          }));
+      onClick={() => {
+        addActiveMenuItem(menuItemLabel);
+        setActive((prevActive) => ({
+          ...prevActive,
+          [menuItemLabel]: !prevActive[menuItemLabel],
+        }));
+      }}
+    >
+      <SvgIcon
+        iconName={`${menuItemLabel}_${systemColorTheme}`}
+        svgProp={{
+          width: 26,
+          height: 26,
+          className: `${
+            active[menuItemLabel]
+              ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
+              : ""
+          }`,
         }}
-      >
-        <SvgIcon
-          iconName={`${menuItemLabel}_${systemColorTheme}`}
-          svgProp={{
-            width: 26,
-            height: 26,
-            className: `${
-              active[menuItemLabel]
-                ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
-                : ""
-            }`,
-          }}
-        />
-        {collapsed ? null : (
-          <p className="text-sm font-semibold">{menuItemLabel}</p>
-        )}
-      </div>
-    </>
+      />
+      {collapsed ? null : (
+        <p className="text-sm font-semibold capitalize">
+          {removeUnderscoreBetweenWords(menuItemLabel)}
+        </p>
+      )}
+    </button>
   );
 };
 

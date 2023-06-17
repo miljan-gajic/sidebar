@@ -21,7 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems }) => {
     >
       <SidebarBadgeLogo />
       <SideBarSection>
-        <Section />
+        <Section items={menuItems} />
         <SidebarFooter />
       </SideBarSection>
     </div>

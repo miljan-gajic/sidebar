@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useLocalStorage } from "./localStorage";
 import { useUI } from "./uiContext";
 
 export const useReadAndSetSystemTheme = () => {
+  const [localState, handleSetState] = useLocalStorage("UI", {});
   const [mode, setMode] = useState<"light" | "dark" | "">("");
 
   const { dispatch } = useUI();
@@ -33,5 +35,6 @@ export const useReadAndSetSystemTheme = () => {
       type: "addSystemWiseThemeMode",
       payload: mode,
     });
+    handleSetState({ ...localState, systemColorTheme: mode });
   }, [dispatch, mode]);
 };
