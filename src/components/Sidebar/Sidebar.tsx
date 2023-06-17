@@ -1,3 +1,4 @@
+import { useUI } from "@/hooks/uiContext";
 import { truncateWord } from "@/utils/textUtils";
 import { useState } from "react";
 import SvgIcon from "../SvgIcon/SvgIcon";
@@ -17,6 +18,19 @@ const Sidebar: React.FC<SidebarProps> = ({
   menuItems,
 }) => {
   const [active, setActive] = useState(false);
+  const {
+    dispatch,
+    state: { activeMenuItem },
+  } = useUI();
+
+  console.log("🚀 ~ file: Sidebar.tsx:24 ~ activeMenuItem:", activeMenuItem);
+
+  const addActiveMenuItem = (activeMenu: string) => {
+    dispatch({
+      type: "addActiveMenuItem",
+      payload: activeMenu,
+    });
+  };
   return (
     <div
       className="        
@@ -71,7 +85,10 @@ const Sidebar: React.FC<SidebarProps> = ({
                   : ""
               }
               transition duration-150 ease-in-out`}
-              onClick={() => setActive(!active)}
+              onClick={() => {
+                addActiveMenuItem("Catalog");
+                setActive(!active);
+              }}
             >
               <SvgIcon
                 iconName="catalogs_dark"
