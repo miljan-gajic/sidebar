@@ -1,8 +1,11 @@
 import Content from "@/components/Content/Content";
 import Layout from "@/components/Layout/Layout";
+import { useReadAndSetSystemTheme } from "./hooks/systemTheme";
 import { useUI } from "./hooks/uiContext";
 
 function App() {
+  useReadAndSetSystemTheme();
+
   const {
     state: { activeMenuItem },
   } = useUI();

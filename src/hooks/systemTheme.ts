@@ -1,0 +1,39 @@
+import { useEffect, useState } from "react";
+import { useUI } from "./uiContext";
+
+export const useReadAndSetSystemTheme = () => {
+  const [mode, setMode] = useState<"light" | "dark" | "">("");
+
+  const { dispatch } = useUI();
+
+  useEffect(() => {
+    // Add listener to update styles
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => setMode(e.matches ? "dark" : "light"));
+
+    // Setup dark/light mode for the first time
+    setMode(
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"
+    );
+
+    // Remove listener
+    return () => {
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .removeEventListener("change", () => setMode);
+    };
+  }, []);
+
+  // This is to synchronize external state "Context" with internal state "mode"
+
+  console.log("MODE from the hook - inside the use", mode);
+  useEffect(() => {
+    dispatch({
+      type: "addSystemWiseThemeMode",
+      payload: mode,
+    });
+  }, [dispatch, mode]);
+};

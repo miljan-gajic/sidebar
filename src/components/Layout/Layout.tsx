@@ -1,10 +1,13 @@
+import { useUI } from "@/hooks/uiContext";
 import classNames from "classnames";
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren } from "react";
 import data from "../../assets/data/menuItems.json";
 import Sidebar from "../Sidebar/Sidebar";
 
 const Layout = ({ children }: PropsWithChildren) => {
-  const [collapsed, setSidebarCollapsed] = useState(false);
+  const {
+    state: { collapsed },
+  } = useUI();
   return (
     <div
       className={classNames({
@@ -18,11 +21,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       })}
     >
       {/* sidebar */}
-      <Sidebar
-        collapsed={collapsed}
-        setCollapsed={() => setSidebarCollapsed((prev) => !prev)}
-        menuItems={data}
-      />
+      <Sidebar menuItems={data} />
       {/* content */}
       <div className=""> {children}</div>
     </div>

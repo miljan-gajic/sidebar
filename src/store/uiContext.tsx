@@ -6,9 +6,17 @@ import { createContext, useMemo, useReducer } from "react";
 
 type Action =
   | { type: "addActiveMenuItem"; payload: string }
-  | { type: "addSystemWiseThemeMode"; payload: string };
+  | { type: "addSystemWiseThemeMode"; payload: "dark" | "light" | "" }
+  | { type: "addCollapsedMode"; payload: boolean };
+
 type Dispatch = (action: Action) => void;
-type State = { activeMenuItem: string; systemColorTheme: string };
+
+type State = {
+  activeMenuItem: string;
+  systemColorTheme: string;
+  collapsed: boolean;
+};
+
 type UiProviderProps = { children: React.ReactNode };
 
 export const UIStateContext = createContext<
@@ -29,6 +37,12 @@ export const uiReducer = (state: State, action: Action) => {
         systemColorTheme: action.payload,
       };
     }
+    case "addCollapsedMode": {
+      return {
+        ...state,
+        collapsed: action.payload,
+      };
+    }
     default: {
       return state;
     }
@@ -39,6 +53,7 @@ export const UiProvider = ({ children }: UiProviderProps) => {
   const [state, dispatch] = useReducer(uiReducer, {
     activeMenuItem: "",
     systemColorTheme: "",
+    collapsed: false,
   });
   const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
   return (
