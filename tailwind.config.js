@@ -19,6 +19,7 @@ export default {
         "section-dark": "var(--section-dark)",
         "section-hover-dark": "var(--section-hover-dark)",
         "section-active-dark": "var(--section-active-dark)",
+        "section-active-dark-border": "var(--section-active-dark-border)",
       },
       height: {
         "badge-height": "var(--badge-height)",

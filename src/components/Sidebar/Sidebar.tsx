@@ -48,12 +48,10 @@ const Sidebar: React.FC<SidebarProps> = ({
         </button>
       </div>
       <div className="flex flex-col grow justify-between">
+        {/* MENU ITEMS */}
         {/* In the design there were paddings that are not symmetrical, 24px, 12px, 24px, 16px I don't know if this is some error or not */}
-        <div className="pt-[24px] pr-[12px] pb-[24px] pl-[16px] flex-col gap-y-12">
-          <div
-            id="category 1"
-            className="flex flex-col gap-y-[25px] justify-start items-start"
-          >
+        <div className="pt-[24px] pr-[12px] pb-[24px] pl-[16px] flex flex-col gap-y-12">
+          <div className="flex flex-col gap-y-4 justify-start items-start">
             {collapsed ? null : (
               <p className="text-xs font-extrabold text-[color:var(--section-light)] dark:text-[color:var(--section-dark)] pl-2">
                 PROCUREMENT
@@ -66,8 +64,11 @@ const Sidebar: React.FC<SidebarProps> = ({
               hover:bg-[color:var(--section-hover-dark)]
               hover:cursor-pointer
               hover:border-l-4
+              hover:ml-[-4px]
               w-full rounded-r-lg ${
-                active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
+                active
+                  ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)]"
+                  : ""
               }
               transition duration-150 ease-in-out`}
               onClick={() => setActive(!active)}
@@ -82,15 +83,18 @@ const Sidebar: React.FC<SidebarProps> = ({
             </div>
             <div
               className={`
-              flex items-center justify-start gap-x-2 
-              pt-[8px] pr-[16px] pb-[8px] pl-[4px]
-              hover:bg-[color:var(--section-hover-dark)]
-              hover:cursor-pointer
-              hover:border-l-4
-              w-full rounded-r-lg ${
-                active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
-              }
-              transition duration-150 ease-in-out`}
+                flex items-center justify-start gap-x-2 
+                pt-[8px] pr-[16px] pb-[8px] pl-[4px]
+                hover:bg-[color:var(--section-hover-dark)]
+                hover:cursor-pointer
+                hover:border-l-4
+                hover:ml-[-4px]
+                w-full rounded-r-lg ${
+                  active
+                    ? "bg-[color:var(--section-active-dark)] border-l-4"
+                    : ""
+                }
+                transition duration-150 ease-in-out`}
             >
               <SvgIcon
                 iconName="projects_dark"
@@ -102,15 +106,18 @@ const Sidebar: React.FC<SidebarProps> = ({
             </div>
             <div
               className={`
-            flex items-center justify-start gap-x-2 
-            pt-[8px] pr-[16px] pb-[8px] pl-[4px]
-            hover:bg-[color:var(--section-hover-dark)]
-            hover:cursor-pointer
-            hover:border-l-4
-            w-full rounded-r-lg ${
-              active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
-            }
-            transition duration-150 ease-in-out`}
+                flex items-center justify-start gap-x-2 
+                pt-[8px] pr-[16px] pb-[8px] pl-[4px]
+                hover:bg-[color:var(--section-hover-dark)]
+                hover:cursor-pointer
+                hover:border-l-4
+                hover:ml-[-4px]
+                w-full rounded-r-lg ${
+                  active
+                    ? "bg-[color:var(--section-active-dark)] border-l-4"
+                    : ""
+                }
+                transition duration-150 ease-in-out`}
             >
               <SvgIcon
                 iconName="jobs_dark"
@@ -121,7 +128,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           </div>
           <div
             id="category 2"
-            className="flex flex-col gap-y-[25px] justify-start items-start"
+            className="flex flex-col gap-y-4 justify-start items-start"
           >
             {collapsed ? null : (
               <p className="text-xs font-extrabold text-[color:var(--section-light)] dark:text-[color:var(--section-dark)] pl-2">
@@ -130,15 +137,18 @@ const Sidebar: React.FC<SidebarProps> = ({
             )}
             <div
               className={`
-              flex items-center justify-start gap-x-2 
-              pt-[8px] pr-[16px] pb-[8px] pl-[4px]
-              hover:bg-[color:var(--section-hover-dark)]
-              hover:cursor-pointer
-              hover:border-l-4
-              w-full rounded-r-lg ${
-                active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
-              }
-              transition duration-150 ease-in-out`}
+                flex items-center justify-start gap-x-2 
+                pt-[8px] pr-[16px] pb-[8px] pl-[4px]
+                hover:bg-[color:var(--section-hover-dark)]
+                hover:cursor-pointer
+                hover:border-l-4
+                hover:ml-[-4px]
+                w-full rounded-r-lg ${
+                  active
+                    ? "bg-[color:var(--section-active-dark)] border-l-4"
+                    : ""
+                }
+                transition duration-150 ease-in-out`}
             >
               <SvgIcon
                 iconName="files_dark"
@@ -150,15 +160,18 @@ const Sidebar: React.FC<SidebarProps> = ({
             </div>
             <div
               className={`
-              flex items-center justify-start gap-x-2 
-              pt-[8px] pr-[16px] pb-[8px] pl-[4px]
-              hover:bg-[color:var(--section-hover-dark)]
-              hover:cursor-pointer
-              hover:border-l-4
-              w-full rounded-r-lg ${
-                active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
-              }
-              transition duration-150 ease-in-out`}
+                flex items-center justify-start gap-x-2 
+                pt-[8px] pr-[16px] pb-[8px] pl-[4px]
+                hover:bg-[color:var(--section-hover-dark)]
+                hover:cursor-pointer
+                hover:border-l-4
+                hover:ml-[-4px]
+                w-full rounded-r-lg ${
+                  active
+                    ? "bg-[color:var(--section-active-dark)] border-l-4"
+                    : ""
+                }
+                transition duration-150 ease-in-out`}
             >
               <SvgIcon
                 iconName="media_assets_dark"
@@ -170,15 +183,18 @@ const Sidebar: React.FC<SidebarProps> = ({
             </div>
             <div
               className={`
-              flex items-center justify-start gap-x-2 
-              pt-[8px] pr-[16px] pb-[8px] pl-[4px]
-              hover:bg-[color:var(--section-hover-dark)]
-              hover:cursor-pointer
-              hover:border-l-4
-              w-full rounded-r-lg ${
-                active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
-              }
-              transition duration-150 ease-in-out`}
+                flex items-center justify-start gap-x-2 
+                pt-[8px] pr-[16px] pb-[8px] pl-[4px]
+                hover:bg-[color:var(--section-hover-dark)]
+                hover:cursor-pointer
+                hover:border-l-4
+                hover:ml-[-4px]
+                w-full rounded-r-lg ${
+                  active
+                    ? "bg-[color:var(--section-active-dark)] border-l-4"
+                    : ""
+                }
+                transition duration-150 ease-in-out`}
             >
               <SvgIcon
                 iconName="manuals_dark"
@@ -191,9 +207,10 @@ const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
 
+        {/* FOOTER */}
         <div className="pt-4 pr-4 pb-3 pl-4 flex justify-between items-center gap-3">
           <div>
-            <div className="flex items-center justify-start gap-[5px] pb-1">
+            <div className="flex items-center justify-start gap-[5px] pb-[19px]">
               <SvgIcon
                 iconName="data_privacy_dark"
                 svgProp={{ width: 10.5, height: 12 }}
@@ -212,7 +229,14 @@ const Sidebar: React.FC<SidebarProps> = ({
               )}
             </div>
           </div>
-          <div className="p-1" onClick={() => setCollapsed(!collapsed)}>
+          <div
+            className={`
+              p-1 
+              ${collapsed ? "ml-2" : ""} 
+              bg-[color:var(--light-bg)] dark:bg-[color:var(--dark-bg)] 
+              rounded-[29px] `}
+            onClick={() => setCollapsed(!collapsed)}
+          >
             <SvgIcon
               iconName={collapsed ? "expand_dark" : "collapse_dark"}
               svgProp={{ width: 26, height: 26 }}

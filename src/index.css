@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap');
 
 :root {
   /* background colors */
@@ -26,6 +26,7 @@
   --section-dark: #aabdcf;
   --section-hover-dark: #F8E9E81A;
   --section-active-dark: #F8E9E80D;
+  --section-active-dark-border: #C6D3DF;
 
   /* Sizes */
   --sidebar-w: 250px;
