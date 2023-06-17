@@ -22,11 +22,15 @@
   --dark-hover-clr: #e3e9ef;
   --dark-pressed-clr: #aabdcf;
 
+  /* Section colors */
   --section-light: #1c4f7f;
   --section-dark: #aabdcf;
   --section-hover-dark: #F8E9E81A;
   --section-active-dark: #F8E9E80D;
   --section-active-dark-border: #C6D3DF;
+
+  /* Borders */
+  --border-clr: #DBDBDB;
 
   /* Sizes */
   --sidebar-w: 250px;

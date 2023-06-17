@@ -28,8 +28,6 @@ export const useReadAndSetSystemTheme = () => {
   }, []);
 
   // This is to synchronize external state "Context" with internal state "mode"
-
-  console.log("MODE from the hook - inside the use", mode);
   useEffect(() => {
     dispatch({
       type: "addSystemWiseThemeMode",

@@ -20,7 +20,11 @@ const Section = () => {
   }
 
   return (
-    <div className="pt-[24px] pr-[12px] pb-[24px] pl-[16px] flex flex-col gap-y-12">
+    <div
+      className={`${
+        collapsed ? "pt-6 pr-1 pb-6 pl-2" : "pt-6 pr-3 pb-6 pl-4"
+      } flex flex-col gap-y-12`}
+    >
       <div className="flex flex-col gap-y-4 justify-start items-start">
         {collapsed ? null : (
           <p className="text-xs font-extrabold text-[color:var(--section-light)] dark:text-[color:var(--section-dark)] pl-2">
@@ -37,7 +41,7 @@ const Section = () => {
             hover:ml-[-4px]
             w-full rounded-r-lg ${
               active
-                ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)]"
+                ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)] ml-[-4px]"
                 : ""
             }
             transition duration-150 ease-in-out`}
@@ -48,7 +52,15 @@ const Section = () => {
         >
           <SvgIcon
             iconName={`catalogs_${systemColorTheme}`}
-            svgProp={{ width: 26, height: 26 }}
+            svgProp={{
+              width: 26,
+              height: 26,
+              className: `${
+                active
+                  ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
+                  : ""
+              }`,
+            }}
           />
           {collapsed ? null : <p className="text-sm font-semibold">Catalog</p>}
         </div>
@@ -61,13 +73,23 @@ const Section = () => {
             hover:border-l-4
             hover:ml-[-4px]
             w-full rounded-r-lg ${
-              active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
+              active
+                ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)] ml-[-4px]"
+                : ""
             }
             transition duration-150 ease-in-out`}
         >
           <SvgIcon
             iconName={`projects_${systemColorTheme}`}
-            svgProp={{ width: 26, height: 26 }}
+            svgProp={{
+              width: 26,
+              height: 26,
+              className: `${
+                active
+                  ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
+                  : ""
+              }`,
+            }}
           />
           {collapsed ? null : <p className="text-sm font-semibold">Projects</p>}
         </div>
@@ -80,13 +102,23 @@ const Section = () => {
             hover:border-l-4
             hover:ml-[-4px]
             w-full rounded-r-lg ${
-              active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
+              active
+                ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)] ml-[-4px]"
+                : ""
             }
             transition duration-150 ease-in-out`}
         >
           <SvgIcon
             iconName={`jobs_${systemColorTheme}`}
-            svgProp={{ width: 26, height: 26 }}
+            svgProp={{
+              width: 26,
+              height: 26,
+              className: `${
+                active
+                  ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
+                  : ""
+              }`,
+            }}
           />
           {collapsed ? null : <p className="text-sm font-semibold">Jobs</p>}
         </div>
@@ -109,13 +141,23 @@ const Section = () => {
             hover:border-l-4
             hover:ml-[-4px]
             w-full rounded-r-lg ${
-              active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
+              active
+                ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)] ml-[-4px]"
+                : ""
             }
             transition duration-150 ease-in-out`}
         >
           <SvgIcon
             iconName={`files_${systemColorTheme}`}
-            svgProp={{ width: 26, height: 26 }}
+            svgProp={{
+              width: 26,
+              height: 26,
+              className: `${
+                active
+                  ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
+                  : ""
+              }`,
+            }}
           />
           {collapsed ? null : <p className="text-sm font-semibold">Files</p>}
         </div>
@@ -128,13 +170,23 @@ const Section = () => {
             hover:border-l-4
             hover:ml-[-4px]
             w-full rounded-r-lg ${
-              active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
+              active
+                ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)] ml-[-4px]"
+                : ""
             }
             transition duration-150 ease-in-out`}
         >
           <SvgIcon
             iconName={`media_assets_${systemColorTheme}`}
-            svgProp={{ width: 26, height: 26 }}
+            svgProp={{
+              width: 26,
+              height: 26,
+              className: `${
+                active
+                  ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
+                  : ""
+              }`,
+            }}
           />
           {collapsed ? null : (
             <p className="text-sm font-semibold">Media Assets</p>
@@ -149,13 +201,23 @@ const Section = () => {
             hover:border-l-4
             hover:ml-[-4px]
             w-full rounded-r-lg ${
-              active ? "bg-[color:var(--section-active-dark)] border-l-4" : ""
+              active
+                ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)] ml-[-4px]"
+                : ""
             }
             transition duration-150 ease-in-out`}
         >
           <SvgIcon
             iconName={`manuals_${systemColorTheme}`}
-            svgProp={{ width: 26, height: 26 }}
+            svgProp={{
+              width: 26,
+              height: 26,
+              className: `${
+                active
+                  ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
+                  : ""
+              }`,
+            }}
           />
           {collapsed ? null : <p className="text-sm font-semibold">Manuals</p>}
         </div>
