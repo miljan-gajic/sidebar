@@ -10,11 +10,11 @@ function App() {
   useSetCollapsedBasedOnWindowWidth();
 
   return (
-    <div className="container w-full md:max-w-none lg:container font-inter">
+    <main className="container w-full md:max-w-none lg:container font-inter">
       <Layout>
         <Content />
       </Layout>
-    </div>
+    </main>
   );
 }
 

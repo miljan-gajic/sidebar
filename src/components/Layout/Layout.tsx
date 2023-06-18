@@ -1,4 +1,3 @@
-import menuItemsNoCategory from "@/assets/data/menuItemsNoCategory.json";
 import menuItems from "@/assets/data/menuItems.json";
 import { useUI } from "@/hooks/uiContext";
 import classNames from "classnames";
@@ -10,7 +9,7 @@ const Layout = ({ children }: PropsWithChildren) => {
     state: { collapsed },
   } = useUI();
   return (
-    <div
+    <section
       className={classNames({
         // use grid layout
         "grid min-h-screen": true,
@@ -22,8 +21,8 @@ const Layout = ({ children }: PropsWithChildren) => {
       {/* sidebar */}
       <Sidebar menuItems={menuItems} />
       {/* content */}
-      <div className=""> {children}</div>
-    </div>
+      <section className=""> {children}</section>
+    </section>
   );
 };
 export default Layout;
