@@ -1,4 +1,6 @@
+import { useLocalStorage } from "@/hooks/localStorage";
 import { useUI } from "@/hooks/uiContext";
+import { useState } from "react";
 import SectionItem from "./SectionItem";
 
 type SectionProps = {
@@ -9,12 +11,14 @@ type SectionProps = {
 };
 
 const Section: React.FC<SectionProps> = ({ items }) => {
+  const [localState] = useLocalStorage("UI", {});
+  const [activeMenuItem, setActiveMenuItem] = useState(
+    localState["activeMenuItem"]
+  );
+
   const {
     state: { collapsed },
   } = useUI();
-  {
-    /* In the design there were paddings that are not symmetrical, 24px, 12px, 24px, 16px I don't know if this is some error or not */
-  }
 
   return (
     <div
@@ -36,7 +40,12 @@ const Section: React.FC<SectionProps> = ({ items }) => {
               )}
 
           {menuItems.map(({ label }) => (
-            <SectionItem key={label} menuItemLabel={label} />
+            <SectionItem
+              key={label}
+              menuItemLabel={label}
+              activeMenuItem={activeMenuItem}
+              setActiveMenuItem={setActiveMenuItem}
+            />
           ))}
         </div>
       ))}

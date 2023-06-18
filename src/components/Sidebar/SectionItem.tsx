@@ -2,18 +2,19 @@ import SvgIcon from "@/components/SvgIcon/SvgIcon";
 import { useLocalStorage } from "@/hooks/localStorage";
 import { useUI } from "@/hooks/uiContext";
 import { removeUnderscoreBetweenWords } from "@/utils/textUtils";
-import { useState } from "react";
 
 type SectionItemProps = {
   menuItemLabel: string;
-  categoryTitle?: string;
+  setActiveMenuItem: (menuItem: string) => void;
+  activeMenuItem: string;
 };
 
-const SectionItem: React.FC<SectionItemProps> = ({ menuItemLabel }) => {
+const SectionItem: React.FC<SectionItemProps> = ({
+  menuItemLabel,
+  setActiveMenuItem,
+  activeMenuItem,
+}) => {
   const [localState, handleSetState] = useLocalStorage("UI", {});
-  const [active, setActive] = useState({
-    [menuItemLabel]: localState["activeMenuItem"] === menuItemLabel,
-  });
 
   const {
     dispatch,
@@ -28,27 +29,26 @@ const SectionItem: React.FC<SectionItemProps> = ({ menuItemLabel }) => {
     handleSetState({ ...localState, activeMenuItem: activeMenu });
   };
 
+  const shouldHighlightActiveMenuItem = activeMenuItem === menuItemLabel;
+
   return (
     <button
       className={`
           flex items-center justify-start gap-x-2 
-          ${collapsed ? "pt-2 pr-4 pb-2 pl-3" : "pt-2 pr-4 pb-2 pl-1 "}
+          ${collapsed ? "pt-2 pr-4 pb-2 pl-3" : "pt-2 pr-4 pb-2 pl-1"}
           hover:bg-[color:var(--section-hover-dark)]
           hover:cursor-pointer
           hover:border-l-4
           hover:ml-[-4px]
           w-full rounded-r-lg ${
-            active[menuItemLabel]
+            shouldHighlightActiveMenuItem
               ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)] ml-[-4px]"
               : ""
           }
           transition duration-150 ease-in-out`}
       onClick={() => {
         addActiveMenuItem(menuItemLabel);
-        setActive((prevActive) => ({
-          ...prevActive,
-          [menuItemLabel]: !prevActive[menuItemLabel],
-        }));
+        setActiveMenuItem(menuItemLabel);
       }}
     >
       <SvgIcon
@@ -57,16 +57,16 @@ const SectionItem: React.FC<SectionItemProps> = ({ menuItemLabel }) => {
           width: 26,
           height: 26,
           className: `${
-            active[menuItemLabel]
+            shouldHighlightActiveMenuItem
               ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
               : ""
           }`,
         }}
       />
       {collapsed ? null : (
-        <p className="text-sm font-semibold capitalize">
+        <span className="text-sm font-semibold capitalize">
           {removeUnderscoreBetweenWords(menuItemLabel)}
-        </p>
+        </span>
       )}
     </button>
   );
