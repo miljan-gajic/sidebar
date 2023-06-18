@@ -39,8 +39,8 @@ export default {
         heebo: ["Heebo", "sans-serif"],
       },
       gridTemplateColumns: {
-        sidebar: "250px auto", //for sidebar layout
-        "sidebar-collapsed": "66px auto", //for collapsed sidebar layout
+        sidebar: "250px auto", //for sidebar layout fixed size taken from design files
+        "sidebar-collapsed": "66px auto", //for collapsed sidebar layout fixed size taken from design files
       },
     },
   },

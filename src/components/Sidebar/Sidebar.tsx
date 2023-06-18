@@ -19,9 +19,9 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems }) => {
   return (
     <div
       className="        
-        bg-[color:var(--light-bg)] dark:bg-[color:var(--dark-bg)] 
+        bg-light-bg dark:bg-dark-bg 
         shadow-md
-        text-[color:var(--light-font-clr)] dark:text-[color:var(--dark-font-clr)]
+        text-light-font-clr dark:text-dark-font-clr
         flex flex-col"
     >
       <SidebarBadgeLogo />

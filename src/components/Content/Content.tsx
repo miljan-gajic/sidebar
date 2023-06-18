@@ -6,19 +6,18 @@ const Content: React.FC = () => {
     state: { activeMenuItem },
   } = useUI();
   return (
-    <div
+    <section
       className="
         h-screen 
         overflow-y-auto 
-        bg-[color:var(--light-bg-content)] dark:bg-[color:var(--dark-bg-content)] 
-        text-[color:var(--light-font-clr)] dark:text-[color:var(--dark-font-clr)]
-        grid items-center text-center relative z-[-1]      
-        "
+        bg-light-bg-content dark:bg-dark-bg-content 
+        text-light-font-clr dark:text-dark-font-clr
+        grid items-center text-center relative z-[-1]"
     >
-      <h1 className="text-[color:var(--light-font-clr)] dark:text-[color:var(--dark-font-clr)] font-bold text-7xl capitalize">
+      <h1 className="text-light-font-clr dark:text-dark-font-clr font-bold text-7xl capitalize">
         {removeUnderscoreBetweenWords(activeMenuItem)}
       </h1>
-    </div>
+    </section>
   );
 };
 

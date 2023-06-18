@@ -32,7 +32,11 @@ const Section: React.FC<SectionProps> = ({ items, hasCategories }) => {
             key={idx}
             sectionTitle={
               collapsed ? null : (
-                <p className="text-xs pb-2 font-extrabold text-[color:var(--section-light)] dark:text-[color:var(--section-dark)] pl-2 uppercase">
+                <p
+                  className="
+                    text-xs pb-2 font-extrabold 
+                    text-section-light dark:text-section-dark pl-2 uppercase"
+                >
                   {category}
                 </p>
               )

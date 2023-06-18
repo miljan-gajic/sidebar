@@ -18,6 +18,8 @@ const ToolTip: React.FC<TooltipProps> = ({ children, tooltip }) => {
         tooltipRef.current.style.top = -7 + "px";
       }}
       className="group relative inline-block w-full"
+      role="tooltip"
+      aria-describedby={tooltip}
     >
       {children}
       {tooltip ? (
@@ -25,9 +27,9 @@ const ToolTip: React.FC<TooltipProps> = ({ children, tooltip }) => {
           ref={tooltipRef}
           className="
             invisible group-hover:visible 
-            opacity-0 group-hover:opacity-100 transition bg-[color:var(--tooltip-clr)] text-white p-[10px] rounded-lg absolute
+            opacity-0 group-hover:opacity-100 transition bg-tooltip-clr text-white p-[10px] rounded-lg absolute
             top-full mt-2 whitespace-nowrap capitalize text-sm font-medium font-heebo
-            before:content-[''] before:absolute before:top-1/2  before:right-[100%] before:-translate-y-1/2 before:border-8 before:border-y-transparent before:border-l-transparent before:border-r-[color:var(--tooltip-clr)]"
+            before:content-[''] before:absolute before:top-1/2 before:right-[100%] before:-translate-y-1/2 before:border-8 before:border-y-transparent before:border-l-transparent before:border-r-tooltip-clr"
         >
           {tooltip}
         </span>
