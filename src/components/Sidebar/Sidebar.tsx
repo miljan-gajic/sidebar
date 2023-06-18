@@ -3,7 +3,6 @@ import SideBarSection from "@/components/Sidebar/SideBarSection";
 import SidebarBadgeLogo from "@/components/Sidebar/SidebarBadgeLogo";
 import SidebarFooter from "@/components/Sidebar/SidebarFooter";
 import { hasCategory } from "@/utils/menuItemsUtils";
-import SidebarMenuList from "./SidebarMenuList";
 
 export type Items = {
   category: string;
@@ -27,11 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems }) => {
     >
       <SidebarBadgeLogo />
       <SideBarSection>
-        {hasCategory(menuItems) ? (
-          <Section items={menuItems as Items} />
-        ) : (
-          <SidebarMenuList menuItems={menuItems as ItemsNoCategory} />
-        )}
+        <Section items={menuItems} hasCategories={hasCategory(menuItems)} />
         <SidebarFooter />
       </SideBarSection>
     </div>
