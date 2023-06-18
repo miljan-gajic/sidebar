@@ -2,12 +2,18 @@ import Section from "@/components/Sidebar/Section";
 import SideBarSection from "@/components/Sidebar/SideBarSection";
 import SidebarBadgeLogo from "@/components/Sidebar/SidebarBadgeLogo";
 import SidebarFooter from "@/components/Sidebar/SidebarFooter";
+import { hasCategory } from "@/utils/menuItemsUtils";
+import SidebarMenuList from "./SidebarMenuList";
+
+export type Items = {
+  category: string;
+  menuItems: Record<"label", string>[];
+}[];
+
+export type ItemsNoCategory = Record<"label", string>[];
 
 type SidebarProps = {
-  menuItems: {
-    category: string;
-    menuItems: Record<"label", string>[];
-  }[];
+  menuItems: Items | ItemsNoCategory;
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ menuItems }) => {
@@ -21,7 +27,11 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems }) => {
     >
       <SidebarBadgeLogo />
       <SideBarSection>
-        <Section items={menuItems} />
+        {hasCategory(menuItems) ? (
+          <Section items={menuItems as Items} />
+        ) : (
+          <SidebarMenuList menuItems={menuItems as ItemsNoCategory} />
+        )}
         <SidebarFooter />
       </SideBarSection>
     </div>

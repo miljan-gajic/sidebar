@@ -1,7 +1,8 @@
+import menuItemsNoCategory from "@/assets/data/menuItemsNoCategory.json";
+import menuItems from "@/assets/data/menuItems.json";
 import { useUI } from "@/hooks/uiContext";
 import classNames from "classnames";
 import { PropsWithChildren } from "react";
-import data from "../../assets/data/menuItems.json";
 import Sidebar from "../Sidebar/Sidebar";
 
 const Layout = ({ children }: PropsWithChildren) => {
@@ -19,7 +20,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       })}
     >
       {/* sidebar */}
-      <Sidebar menuItems={data} />
+      <Sidebar menuItems={menuItems} />
       {/* content */}
       <div className=""> {children}</div>
     </div>
