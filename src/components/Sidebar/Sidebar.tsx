@@ -1,7 +1,7 @@
-import Section from "@/components/Sidebar/Section";
-import SideBarSection from "@/components/Sidebar/SideBarSection";
+import Section from "@/components/Sidebar/Section/Section";
+import SideBarSection from "@/components/Sidebar/Section/SideBarSection";
 import SidebarBadgeLogo from "@/components/Sidebar/SidebarBadgeLogo";
-import SidebarFooter from "@/components/Sidebar/SidebarFooter";
+import SidebarFooter from "@/components/Sidebar/SidebarFooter/SidebarFooter";
 import { hasCategory } from "@/utils/menuItemsUtils";
 
 export type Items = {

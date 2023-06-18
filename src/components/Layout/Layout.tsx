@@ -1,4 +1,5 @@
 import menuItems from "@/assets/data/menuItems.json";
+import menuItemsNoCategory from "@/assets/data/menuItemsNoCategory.json";
 import { useUI } from "@/hooks/uiContext";
 import classNames from "classnames";
 import { PropsWithChildren } from "react";

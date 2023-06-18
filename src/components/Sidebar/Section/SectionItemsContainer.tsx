@@ -9,7 +9,7 @@ const SectionItemsContainer: React.FC<SectionItemsContainerProps> = ({
   sectionTitle,
 }) => {
   return (
-    <div className="flex flex-col gap-y-4 justify-start items-start">
+    <div className="flex flex-col justify-start items-start">
       {sectionTitle && sectionTitle}
       {children}
     </div>

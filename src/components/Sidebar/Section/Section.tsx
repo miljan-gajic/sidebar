@@ -1,9 +1,9 @@
 import { useLocalStorage } from "@/hooks/localStorage";
 import { useUI } from "@/hooks/uiContext";
 import { useState } from "react";
+import { Items, ItemsNoCategory } from "../Sidebar";
 import SectionItem from "./SectionItem";
 import SectionItemsContainer from "./SectionItemsContainer";
-import { Items, ItemsNoCategory } from "./Sidebar";
 
 type SectionProps = {
   items: Items | ItemsNoCategory;
@@ -31,13 +31,11 @@ const Section: React.FC<SectionProps> = ({ items, hasCategories }) => {
           <SectionItemsContainer
             key={idx}
             sectionTitle={
-              collapsed
-                ? null
-                : category && (
-                    <p className="text-xs font-extrabold text-[color:var(--section-light)] dark:text-[color:var(--section-dark)] pl-2 uppercase">
-                      {category}
-                    </p>
-                  )
+              collapsed ? null : (
+                <p className="text-xs pb-2 font-extrabold text-[color:var(--section-light)] dark:text-[color:var(--section-dark)] pl-2 uppercase">
+                  {category}
+                </p>
+              )
             }
           >
             {menuItems.map(({ label }) => (

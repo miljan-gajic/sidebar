@@ -42,13 +42,15 @@ const SectionItem: React.FC<SectionItemProps> = ({
         className={`
           flex items-center justify-start gap-x-2 
           ${collapsed ? "pt-2 pr-4 pb-2 pl-3" : "pt-2 pr-4 pb-2 pl-1"}
-          hover:bg-[color:var(--section-hover-dark)]
+          hover:bg-[color:var(--section-hover-light)] dark:hover:bg-[color:var(--section-hover-dark)] 
           hover:cursor-pointer
           hover:border-l-4
+          hover:border-[color:var(--section-hover-light-border)] dark:hover:border-[color:var(--section-hover-dark-border)]
           hover:ml-[-4px]
+          active:bg-[color:var(--section-active-light)] dark:active:bg-[color:var(--section-active-dark)]
           w-full rounded-r-lg ${
             shouldHighlightActiveMenuItem
-              ? "bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-dark-border)] ml-[-4px]"
+              ? "bg-[color:var(--section-active-light)] dark:bg-[color:var(--section-active-dark)] border-l-4 border-l-[color:var(--section-active-light-border)] dark:border-l-[color:var(--section-active-dark-border)] ml-[-4px]"
               : ""
           }
           transition duration-150 ease-in-out`}
@@ -64,7 +66,7 @@ const SectionItem: React.FC<SectionItemProps> = ({
             height: 26,
             className: `${
               shouldHighlightActiveMenuItem
-                ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
+                ? "[&>path]:fill-[color:var(--section-active-light-border)] dark:[&>path]:fill-[color:var(--section-active-dark-border)]"
                 : ""
             }`,
           }}

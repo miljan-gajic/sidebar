@@ -25,8 +25,14 @@
 
   /* Section colors */
   --section-light: #1c4f7f;
+  --section-hover-light: #00396F1A;
+  --section-hover-light-border: #557B9F;
+  --section-active-light: #00396F0D;
+  --section-active-light-border: #00396F;  
+
   --section-dark: #aabdcf;
   --section-hover-dark: #F8E9E81A;
+  --section-hover-dark-border: #E3E9EF;
   --section-active-dark: #F8E9E80D;
   --section-active-dark-border: #C6D3DF;
 
