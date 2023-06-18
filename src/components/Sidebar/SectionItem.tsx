@@ -1,4 +1,5 @@
 import SvgIcon from "@/components/SvgIcon/SvgIcon";
+import ToolTip from "@/components/Tooltip/Tooltip";
 import { useLocalStorage } from "@/hooks/localStorage";
 import { useUI } from "@/hooks/uiContext";
 import { removeUnderscoreBetweenWords } from "@/utils/textUtils";
@@ -32,8 +33,13 @@ const SectionItem: React.FC<SectionItemProps> = ({
   const shouldHighlightActiveMenuItem = activeMenuItem === menuItemLabel;
 
   return (
-    <button
-      className={`
+    <ToolTip
+      tooltip={
+        collapsed ? removeUnderscoreBetweenWords(menuItemLabel) : undefined
+      }
+    >
+      <button
+        className={`
           flex items-center justify-start gap-x-2 
           ${collapsed ? "pt-2 pr-4 pb-2 pl-3" : "pt-2 pr-4 pb-2 pl-1"}
           hover:bg-[color:var(--section-hover-dark)]
@@ -46,29 +52,30 @@ const SectionItem: React.FC<SectionItemProps> = ({
               : ""
           }
           transition duration-150 ease-in-out`}
-      onClick={() => {
-        addActiveMenuItem(menuItemLabel);
-        setActiveMenuItem(menuItemLabel);
-      }}
-    >
-      <SvgIcon
-        iconName={`${menuItemLabel}_${systemColorTheme}`}
-        svgProp={{
-          width: 26,
-          height: 26,
-          className: `${
-            shouldHighlightActiveMenuItem
-              ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
-              : ""
-          }`,
+        onClick={() => {
+          addActiveMenuItem(menuItemLabel);
+          setActiveMenuItem(menuItemLabel);
         }}
-      />
-      {collapsed ? null : (
-        <span className="text-sm font-semibold capitalize">
-          {removeUnderscoreBetweenWords(menuItemLabel)}
-        </span>
-      )}
-    </button>
+      >
+        <SvgIcon
+          iconName={`${menuItemLabel}_${systemColorTheme}`}
+          svgProp={{
+            width: 26,
+            height: 26,
+            className: `${
+              shouldHighlightActiveMenuItem
+                ? "[&>path]:fill-[color:var(--section-active-dark-border)]"
+                : ""
+            }`,
+          }}
+        />
+        {collapsed ? null : (
+          <span className="text-sm font-semibold capitalize">
+            {removeUnderscoreBetweenWords(menuItemLabel)}
+          </span>
+        )}
+      </button>
+    </ToolTip>
   );
 };
 

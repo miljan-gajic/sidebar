@@ -42,7 +42,7 @@ export const useSetCollapsedBasedOnWindowWidth = () => {
       });
       handleSetState({ ...localState, collapsed: true });
     }
-    if (size.width && size.width > 768 && !localState["collapsed"]) {
+    if (size.width && size.width > 768 && localState["collapsed"]) {
       dispatch({
         type: "addCollapsedMode",
         payload: false,

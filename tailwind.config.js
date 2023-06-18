@@ -21,6 +21,7 @@ export default {
         "section-active-dark": "var(--section-active-dark)",
         "section-active-dark-border": "var(--section-active-dark-border)",
         "border-clr": "var(--border-clr)",
+        "tooltip-clr": "var(--tooltip-clr)",
       },
       height: {
         "badge-height": "var(--badge-height)",
@@ -30,6 +31,7 @@ export default {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        heebo: ["Heebo", "sans-serif"],
       },
       gridTemplateColumns: {
         sidebar: "250px auto", //for sidebar layout
