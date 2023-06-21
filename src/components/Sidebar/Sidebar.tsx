@@ -22,7 +22,8 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems }) => {
         bg-light-bg dark:bg-dark-bg 
         shadow-md
         text-light-font-clr dark:text-dark-font-clr
-        flex flex-col"
+        flex flex-col
+        max-h-screen overflow-y-scroll"
     >
       <SidebarBadgeLogo />
       <SideBarSection>

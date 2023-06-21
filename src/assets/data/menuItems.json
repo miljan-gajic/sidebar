@@ -26,5 +26,89 @@
         "label": "manuals"
       }
     ]
+  },
+  {
+    "category": "resources",
+    "menuItems": [
+      {
+        "label": "files"
+      },
+      {
+        "label": "media_assets"
+      },
+      {
+        "label": "manuals"
+      }
+    ]
+  },
+  {
+    "category": "resources",
+    "menuItems": [
+      {
+        "label": "files"
+      },
+      {
+        "label": "media_assets"
+      },
+      {
+        "label": "manuals"
+      }
+    ]
+  },
+  {
+    "category": "resources",
+    "menuItems": [
+      {
+        "label": "files"
+      },
+      {
+        "label": "media_assets"
+      },
+      {
+        "label": "manuals"
+      }
+    ]
+  },
+  {
+    "category": "resources",
+    "menuItems": [
+      {
+        "label": "files"
+      },
+      {
+        "label": "media_assets"
+      },
+      {
+        "label": "manuals"
+      }
+    ]
+  },
+  {
+    "category": "resources",
+    "menuItems": [
+      {
+        "label": "files"
+      },
+      {
+        "label": "media_assets"
+      },
+      {
+        "label": "manuals"
+      }
+    ]
+  },
+  {
+    "category": "resources",
+    "menuItems": [
+      {
+        "label": "files"
+      },
+      {
+        "label": "media_assets"
+      },
+      {
+        "label": "manuals"
+      }
+    ]
   }
 ]
